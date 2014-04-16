@@ -186,6 +186,18 @@
                 }, settings.autoClose);
             });
         }
+        
+        /**
+         * Click on notification : Focus on Window
+         */
+        if (notification && !notification.ieVerification && notification.addEventListener) {
+			notification.addEventListener("click", function () {
+                var notification = notificationWrapper;
+                win.focus();
+				notification.close();
+            });
+		}
+        
         return notificationWrapper;
     }
     win.notify = {
